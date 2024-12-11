@@ -1,4 +1,4 @@
-use sysinfo::{System,SystemExt,CpuExt};
+use sysinfo::{System,System,CpuExt};
 
 
 pub fn display(sys: &mut System) {
@@ -8,7 +8,7 @@ pub fn display(sys: &mut System) {
     let total_core = cpus.len();
     let frequency = cpus.first().map(|cpu| cpu.frequency()).unwrap_or(0);
     let usage: Vec<f32> = cpus.iter().map(|cpu| cpu.cpu_usage()).collect();
-    
+    println!("\nThe CPU Details:\n");
     println!("Total cores: {}", total_core);
     println!("Frequency: {}", frequency);
     
